@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Lab Reservation</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 min-h-screen py-10 px-4">
+
+  <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+    <!-- Header -->
+    <div class="bg-blue-600 px-6 py-6 text-white text-center">
+      <h1 class="text-2xl font-bold">Computer Lab Reservation System</h1>
+      <p class="text-blue-100 text-sm mt-1">Book a computer lab outside regular class hours to avoid conflicts.</p>
+    </div>
+
+    <!-- Form -->
+    <form class="p-6 space-y-5">
+      
+      <!-- 1. Borrower's Name -->
+      <div>
+        <label for="borrower-name" class="block text-sm font-semibold text-gray-700 mb-1">Borrower's Name</label>
+        <input 
+          type="text" 
+          id="borrower-name" 
+          name="borrowerName" 
+          placeholder="Enter your full name" 
+          required 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        >
+      </div>
+
+      <!-- 2. Status -->
+      <div>
+        <span class="block text-sm font-semibold text-gray-700 mb-2">Status</span>
+        <div class="flex items-center space-x-6">
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="radio" name="status" value="Teacher" required class="text-blue-600 focus:ring-blue-500">
+            <span class="text-sm text-gray-700">Teacher</span>
+          </label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="radio" name="status" value="Student" class="text-blue-600 focus:ring-blue-500">
+            <span class="text-sm text-gray-700">Student</span>
+          </label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="radio" name="status" value="Organization" class="text-blue-600 focus:ring-blue-500">
+            <span class="text-sm text-gray-700">Organization</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 3. Purpose -->
+      <div>
+        <label for="purpose" class="block text-sm font-semibold text-gray-700 mb-1">Purpose</label>
+        <input 
+          type="text" 
+          id="purpose" 
+          name="purpose" 
+          placeholder="Practicum, Practice, OSIS Meeting, etc." 
+          required 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        >
+      </div>
+
+      <!-- 4. Borrowed Lab -->
+      <div>
+        <label for="lab" class="block text-sm font-semibold text-gray-700 mb-1">Borrowed Lab</label>
+        <select 
+          id="lab" 
+          name="lab" 
+          required 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
+        >
+          <option value="" disabled selected>Select a lab</option>
+          <option value="Lab 1 (Software)">Lab 1 (Software)</option>
+          <option value="Lab 2 (Hardware)">Lab 2 (Hardware)</option>
+        </select>
+      </div>
+
+      <!-- 5. Date of Use -->
+      <div>
+        <label for="date-of-use" class="block text-sm font-semibold text-gray-700 mb-1">Date of Use</label>
+        <input 
+          type="date" 
+          id="date-of-use" 
+          name="dateOfUse" 
+          required 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        >
+      </div>
+
+      <!-- 6 & 7. Start Time & End Time -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label for="start-time" class="block text-sm font-semibold text-gray-700 mb-1">Start Time</label>
+          <input 
+            type="time" 
+            id="start-time" 
+            name="startTime" 
+            required 
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          >
+        </div>
+        <div>
+          <label for="end-time" class="block text-sm font-semibold text-gray-700 mb-1">End Time</label>
+          <input 
+            type="time" 
+            id="end-time" 
+            name="endTime" 
+            required 
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          >
+        </div>
+      </div>
+
+      <!-- 8. Number of Participants -->
+      <div>
+        <label for="participants" class="block text-sm font-semibold text-gray-700 mb-1">Number of Participants</label>
+        <input 
+          type="number" 
+          id="participants" 
+          name="participants" 
+          min="1" 
+          placeholder="e.g. 20" 
+          required 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        >
+      </div>
+
+      <!-- 9. Special Requirements -->
+      <div>
+        <label for="requirements" class="block text-sm font-semibold text-gray-700 mb-1">Special Requirements</label>
+        <textarea 
+          id="requirements" 
+          name="requirements" 
+          rows="3" 
+          placeholder="Need internet access, need a projector, etc." 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        ></textarea>
+      </div>
+
+      <!-- 10. Submit Button (with hover effect) -->
+      <div>
+        <button 
+          type="submit" 
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-200 shadow-md cursor-pointer"
+        >
+          Submit Reservation
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+</html>
+
+```
